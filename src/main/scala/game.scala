@@ -57,8 +57,8 @@ object game {
 
   }
 
-  // start the game's conditional flow
   def main(args: Array[String]): Unit = {
+    // start the game's conditional flow
     turn(p1, p2)
   }
 }

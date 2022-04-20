@@ -56,10 +56,9 @@ object Game {
     for ((k, v) <- gameState) if (k == "13" || k == "23" || k == "33") println(v + " ") else print(v + " ")
   }
 
+  /** Switches between players until the end of the game */
   def nextTurn(turnPlayer: Player, otherPlayer: Player, state: mutable.LinkedHashMap[String, Char]): Option[Player] = {
-    // this function between players until the end of the game
 
-    // ask the player where they want to play and receive input
     println("\nWhere would you like to play, " + turnPlayer.name + " (" + turnPlayer.symbol + ")" + "? (type row # then column # eg. '13' for top-right)\n")
     var move = scala.io.StdIn.readLine()
 
@@ -82,6 +81,7 @@ object Game {
     else nextTurn(otherPlayer, turnPlayer, state)
   }
 
+  /** Checks for win conditions given a game state. */
   def didWin(state: mutable.LinkedHashMap[String, Char]): Boolean = {
     // this function returns true if a win condition is met
     if (state("11") == state("12") && state("11") == state("13") && state("11") != '■') true
